@@ -51,7 +51,23 @@ int bst::display(node* root)
   else //otherwise...
     {
       display(root->left); //recursively repeat, going to left node until at VERY leftmost node
-      cout << root->data << " "; //display data (if NULL, displays nothing)
+      cout << root->data << " | "; //display data (if NULL, displays nothing)
+      if(root->left != NULL) //if left child exists
+	{
+	  cout << "LChild: " << root->left->data << " | "; //print data
+	}
+      else
+	{
+	  cout << "LChild: NULL | "; //else print NULL
+	}
+      if(root->right != NULL) //if right child exists
+	{
+	  cout << "RChild: " << root->right->data << endl;
+	}
+      else //if no right child
+	{
+	  cout << "RChild: NULL\n"; //print NULL
+	}
       display(root->right); //go to the right of node
       return 1;
     }
