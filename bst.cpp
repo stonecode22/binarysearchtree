@@ -120,16 +120,16 @@ int bst::remove(node* &root, int data)
 	    }	  
 	  else //if there are two children
 	    {
-	      node *temp = root->right; //current
-	      node *last; //parent of the current
+	      node *temp = root->right->left; //current
+	      node *last = root->right; //parent of the current
 	      while(temp->left != NULL)
 		{
 		  last = temp;
 		  temp = temp->left;
 		}
-	      delete root;
 	      root->data = temp->data;
 	      delete temp;
+	      temp = NULL;
 	      last->left = NULL;
 	      return 1;
 	    }
